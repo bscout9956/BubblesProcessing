@@ -1,5 +1,5 @@
 # BubblesProcessing
-This project is a terrible recreation of the Bubbles Screensaver made by Microsoft for Windows Vista+
+This project is a terrible recreation of the Bubbles Screensaver made by Microsoft for Windows Vista+ in Processing.Py
 
 # Issues
 
