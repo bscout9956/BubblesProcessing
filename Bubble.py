@@ -1,5 +1,5 @@
 class Bubble(object):
-    def __init__(self, diameter, sWidth, sHeight, ballid):
+    def __init__(self, diameter, sWidth, sHeight, bubbleid):
         self.diameter = diameter
         self.sWidth = sWidth
         self.sHeight = sHeight
@@ -13,8 +13,8 @@ class Bubble(object):
         self.posy = random(50, 720 - self.radius)
         self.speedx = random(1, 4)
         self.speedy = random(1, 4)
-        self.dirx = round(random(0, 1))
-        self.diry = round(random(0, 1))
+        self.dirx = int(random(-2, 2))
+        self.diry = int(random(-2, 2))
         
         # Color stuff
         
@@ -28,7 +28,7 @@ class Bubble(object):
         
         # Misc
         
-        self.ballid = ballid # Why would anyone need an ID?
+        self.bubbleid = bubbleid # Why would anyone need an ID?
         
         #print("Initial color is R {0} G {1} B {2} A {3} and ID is {4}".format(self.r, self.g, self.b, self.a, self.ballid))
         #print("Speeds are {0}, {1}".format(self.speedx, self.speedy))
@@ -81,20 +81,25 @@ class Bubble(object):
         #print("Pos Y:", self.posy)
         #print("Pos X:", self.posx)
         
-        if self.dirx == 1:
-            self.posx += self.speedx
-            if self.posx > width - self.radius:
-                self.dirx = 0
-        else:
-            self.posx -= self.speedx
-            if self.posx < self.radius:
-                self.dirx = 1
+        if self.posx < 0 + self.radius or self.posx > width - self.radius:
+            self.dirx *= -1
         
+        if self.posy > height - self.radius or self.posy < 0 + self.radius:
+            self.diry *= -1
+          
+        if self.dirx == -1:
+            self.posx += self.speedx / self.biasx
+        elif self.dirx == 0:
+            self.dirx = int(random(-2, 2))
+        if self.dirx == 1:
+            self.posx -= self.speedx / self.biasx   
+        
+        if self.diry == -1:
+            self.posy += self.speedy / self.biasy
+        elif self.diry == 0:
+            self.diry = int(random(-2, 2))
         if self.diry == 1:
-            self.posy -= self.speedy
-            if self.posy < self.radius:
-                self.diry = 0
-        else:
-            self.posy += self.speedy
-            if self.posy > height - self.radius:
-                self.diry = 1
+            self.posy -= self.speedy / self.biasy
+            
+            
+            
