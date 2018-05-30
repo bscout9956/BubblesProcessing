@@ -91,14 +91,14 @@ class Bubble(object):
             self.posx += self.speedx / self.biasx
         elif self.dirx == 0:
             self.dirx = int(random(-2, 2))
-        if self.dirx == 1:
+        else:
             self.posx -= self.speedx / self.biasx   
         
         if self.diry == -1:
             self.posy += self.speedy / self.biasy
         elif self.diry == 0:
             self.diry = int(random(-2, 2))
-        if self.diry == 1:
+        else:
             self.posy -= self.speedy / self.biasy
             
             
