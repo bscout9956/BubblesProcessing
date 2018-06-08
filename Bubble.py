@@ -18,9 +18,29 @@ class Bubble(object):
         
         # Color stuff
         
-        self.r_increasing = True
-        self.g_increasing = True
-        self.b_increasing = True
+        """ We randomize this as to look natural """
+        
+        self.random_r = int(random(-1, 2))
+        self.random_g = int(random(-1, 2))
+        self.random_b = int(random(-1, 2))
+        
+        """ The logic mess is a mere workaround. Initial code was sometimes rendering the bubbles white or black because of the nature of RGB. """
+        
+        if self.random_r == 1:    
+            self.r_increasing = True
+        else:
+            self.r_increasing = False
+            
+        if self.random_g == 1:    
+            self.g_increasing = True
+        else:
+            self.g_increasing = False
+            
+        if self.random_b == 1:    
+            self.b_increasing = True
+        else:
+            self.b_increasing = False
+        
         self.r = int(random(20, 255))
         self.g = int(random(20, 255))
         self.b = int(random(20, 255))
@@ -36,12 +56,19 @@ class Bubble(object):
     
         
     # Used to colorize whatever you wish
+    
+    """ 
+    
+    Once the code is done increasing one channel it steps into increasing another. They won't both increase at the same time therefore no white or black bubbles. 
+    
+    """
                 
     def colorize(self):
         if self.r_increasing == True:
             self.r += 1
             if self.r == 255:
                 self.r_increasing = False
+                self.g_increasing = True
         else:
             self.r -= 1
             if self.r == 0:
@@ -50,7 +77,8 @@ class Bubble(object):
         if self.g_increasing == True:
             self.g += 1
             if self.g == 255:
-                self.g_increasing = False    
+                self.g_increasing = False
+                self.b_increasing = True  
         else:
             self.g -= 1
             if self.g == 0:                
@@ -59,7 +87,8 @@ class Bubble(object):
         if self.b_increasing == True:
             self.b += 1
             if self.b == 255:
-                self.b_increasing = False    
+                self.b_increasing = False
+                self.r_increasing = True
         else:
             self.b -= 1
             if self.b == 0:
