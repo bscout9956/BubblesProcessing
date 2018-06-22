@@ -8,7 +8,7 @@ This is inspired by the Bubbles Screensaver (duh) made by Microsoft Corporation 
 
 import Bubble
 
-bubbleCount = 10 # How many bubbles? Set it here
+bubbleCount = 20 # How many bubbles? Set it here
 bubbleCount += 1 # Lists boogaloo
 
 screenWidth = 1280
@@ -26,6 +26,7 @@ for x in range(0, bubbleCount):
     blebs[x] = Bubble.Bubble(Size, screenWidth, screenHeight, x)
 
 def setup():
+    colorMode(HSB)
     size(screenWidth, screenHeight)
 
 def draw():
