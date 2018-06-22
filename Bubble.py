@@ -1,5 +1,3 @@
-import math
-
 class Bubble(object):
     def __init__(self, diameter, sWidth, sHeight, bubbleid):
         self.diameter = diameter
@@ -12,7 +10,6 @@ class Bubble(object):
         """ Some of it is randomized as a necessity, some just so it looks slightly more natural """
         
         self.posx = random(50, 1280 - self.radius)
-        #self.posx = map(noise(self.sWidth, self.sHeight), 0, 1, 50, 1280 - self.radius)
         
         self.posy = random(50, 720 - self.radius)
         self.speedx = random(1, 4)
@@ -24,29 +21,19 @@ class Bubble(object):
         
         self.hu = int(random(0, 255))
         
-        # Misc
-        
-        self.bubbleid = bubbleid # Why would anyone need an ID?
-        
         #print("Speeds are {0}, {1}".format(self.speedx, self.speedy))
         #print("Directions are {0}, {1}".format(self.dirx, self.diry))
-    
-                
+           
     def colorize(self):
         self.hu += 1
         if self.hu > 255:
-            self.hu = 0
-            
+            self.hu = 0        
     
     def display(self):
         self.colour = color(self.hu, 255, 255, 128)
         noStroke()
         fill(self.colour)
         ellipse(self.posx, self.posy, self.diameter, self.diameter)
-        #fill(255)
-        #textSize(self.radius / 4)
-        #text("B u b b l e", self.posx - self.radius / 2, self.posy)
-        
     
     def bounce(self):
         #print("Pos Y:", self.posy)
@@ -66,7 +53,7 @@ class Bubble(object):
             self.posx -= self.speedx
         
         if self.diry == -1:
-            self.posy += self.speedx
+            self.posy += self.speedy
         elif self.diry == 0:
             self.diry = int(random(-2, 2))
         else:
