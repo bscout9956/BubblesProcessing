@@ -10,12 +10,9 @@ class Bubble(object):
         """ Some of it is randomized as a necessity, some just so it looks slightly more natural """
         
         self.posx = random(50, 1280 - self.radius)
-        
         self.posy = random(50, 720 - self.radius)
-        self.speedx = random(1, 4)
-        self.speedy = random(1, 4)
-        self.dirx = int(random(-2, 2))
-        self.diry = int(random(-2, 2))
+        self.speedx = random(-4, 4)
+        self.speedy = random(-4, 4)
         
         # Color stuff
         
@@ -40,22 +37,10 @@ class Bubble(object):
         #print("Pos X:", self.posx)
         
         if self.posx < 0 + self.radius or self.posx > width - self.radius:
-            self.dirx *= -1
+            self.speedx *= -1
         
         if self.posy > height - self.radius or self.posy < 0 + self.radius:
-            self.diry *= -1
+            self.speedy *= -1
           
-        if self.dirx == -1:
-            self.posx += self.speedx
-        elif self.dirx == 0:
-            self.dirx = int(random(-2, 2))
-        else:
-            self.posx -= self.speedx
-        
-        if self.diry == -1:
-            self.posy += self.speedy
-        elif self.diry == 0:
-            self.diry = int(random(-2, 2))
-        else:
-            self.posy -= self.speedx
-    
+        self.posx += self.speedx
+        self.posy += self.speedy
