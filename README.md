@@ -1,6 +1,6 @@
 # BubblesProcessing
-This project is a terrible recreation of the Bubbles Screensaver made by Microsoft for Windows Vista+ in Processing.Py
-There is also a separate branch of a Java version. I decided not to make another repo since there is no need to.
+This project is a partial recreation of the Bubbles Screensaver made by Microsoft for Windows Vista+ in Processing (Python)
+There is also a separate branch for the Java version. I decided not to make another repo since there is no need to.
 
 # Issues
 
