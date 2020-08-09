@@ -1,5 +1,3 @@
-#add_library('box2d_processing')
-#add_library('jbox2d')
 """
 
 Bubbles Screensaver recreation by BlackScout/bscout9956
@@ -9,9 +7,6 @@ This is inspired by the Bubbles Screensaver (duh) made by Microsoft Corporation 
 """
 
 import Bubble
-#import Boundaries
-
-#box2d = Box2DProcessing(this)
 
 bubbleCount = 20 # How many bubbles? Set it here
 
@@ -24,11 +19,10 @@ Size = pixelCount / 10000 # Optimized size
 
 # An array for each bleb
 
-blebs = [None] * (bubbleCount + 1)
-#bound = [None] * 4
+blebs = list()
 
-for x in range(0, bubbleCount + 1):
-    blebs[x] = Bubble.Bubble(Size, screenWidth, screenHeight, x)
+for x in range(0, bubbleCount):
+    blebs.append(Bubble.Bubble(Size, screenWidth, screenHeight, x))
     
 #bound[0] = Boundaries.Boundaries(1280, 1, 0, 0)  //top
 #bound[1] = Boundaries.Boundaries(1280, 1, 0, 720) // bottom
@@ -47,10 +41,10 @@ def draw():
     
     #box2d.step()
     
-    for x in range(0, bubbleCount + 1):
-        blebs[x].bounce()
-        blebs[x].colorize()
-        blebs[x].display()   
+    for bleb in blebs:
+        bleb.bounce()
+        bleb.colorize()
+        bleb.display()   
         
     #for y in range(0, len(bound) + 1):
         #bound[y].display() 
