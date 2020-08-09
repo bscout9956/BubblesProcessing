@@ -23,31 +23,17 @@ bubble_list = list()
 
 for x in range(0, bubbleCount):
     bubble_list.append(Bubble.Bubble(Size, screenWidth, screenHeight))
-    
-#bound[0] = Boundaries.Boundaries(1280, 1, 0, 0)  //top
-#bound[1] = Boundaries.Boundaries(1280, 1, 0, 720) // bottom
-#bound[2] = Boundaries.Boundaries(1, 1280, 0, 0) // left
-#bound[3] = Boundaries.Boundaries(1, 1280, 1280, 720) //right
 
-def setup():
-    #box2d = Box2DProcessing()
-    #box2d.createWorld()
-    
+def setup():   
     size(screenWidth, screenHeight, P2D)
     colorMode(HSB)    
 
 def draw():
     background(10)
     
-    #box2d.step()
-    
     for bubble in bubble_list:
         bubble.bounce()
         bubble.colorize()
-        bubble.display()   
-        
-    #for y in range(0, len(bound) + 1):
-        #bound[y].display() 
-        
+        bubble.display()      
                 
         
