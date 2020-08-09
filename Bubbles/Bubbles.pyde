@@ -19,10 +19,10 @@ Size = pixelCount / 10000 # Optimized size
 
 # An array for each bleb
 
-blebs = list()
+bubble_list = list()
 
 for x in range(0, bubbleCount):
-    blebs.append(Bubble.Bubble(Size, screenWidth, screenHeight, x))
+    bubble_list.append(Bubble.Bubble(Size, screenWidth, screenHeight, x))
     
 #bound[0] = Boundaries.Boundaries(1280, 1, 0, 0)  //top
 #bound[1] = Boundaries.Boundaries(1280, 1, 0, 720) // bottom
@@ -41,10 +41,10 @@ def draw():
     
     #box2d.step()
     
-    for bleb in blebs:
-        bleb.bounce()
-        bleb.colorize()
-        bleb.display()   
+    for bubble in bubble_list:
+        bubble.bounce()
+        bubble.colorize()
+        bubble.display()   
         
     #for y in range(0, len(bound) + 1):
         #bound[y].display() 
