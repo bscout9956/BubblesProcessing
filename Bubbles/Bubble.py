@@ -1,46 +1,46 @@
-class Bubble(object):
-    def __init__(self, diameter, sWidth, sHeight, bubbleid):
+class Bubble():
+    def __init__(self, diameter, screen_width, screen_height):
         self.diameter = diameter
-        self.sWidth = sWidth
-        self.sHeight = sHeight
+        self.screen_width = screen_width
+        self.screen_height = screen_height
         self.radius = self.diameter / 2
         
         # Movement and Position stuff
         
         """ Some of it is randomized as a necessity, some just so it looks slightly more natural """
         
-        self.posx = random(50, 1280 - self.radius)
-        self.posy = random(50, 720 - self.radius)
-        self.speedx = random(-4, 4)
-        self.speedy = random(-4, 4)
+        self.pos_x = random(50, 1280 - self.radius)
+        self.pos_y = random(50, 720 - self.radius)
+        self.speed_x = random(-4, 4)
+        self.speed_y = random(-4, 4)
         
         # Color stuff
         
-        self.hu = int(random(0, 255))
+        self.color_hue = int(random(0, 255))
         
-        #print("Speeds are {0}, {1}".format(self.speedx, self.speedy))
+        #print("Speeds are {0}, {1}".format(self.speed_x, self.speed_y))
         #print("Directions are {0}, {1}".format(self.dirx, self.diry))
            
     def colorize(self):
-        self.hu += 1
-        if self.hu > 255:
-            self.hu = 0        
+        self.color_hue += 1
+        if self.color_hue > 255:
+            self.color_hue = 0        
     
     def display(self):
-        self.colour = color(self.hu, 255, 255, 128)
+        self.colour = color(self.color_hue, 255, 255, 128)
         noStroke()
         fill(self.colour)
-        ellipse(self.posx, self.posy, self.diameter, self.diameter)
+        ellipse(self.pos_x, self.pos_y, self.diameter, self.diameter)
     
     def bounce(self):
-        #print("Pos Y:", self.posy)
-        #print("Pos X:", self.posx)
+        #print("Pos Y:", self.pos_y)
+        #print("Pos X:", self.pos_x)
         
-        if self.posx < 0 + self.radius or self.posx > width - self.radius:
-            self.speedx *= -1
+        if self.pos_x < 0 + self.radius or self.pos_x > width - self.radius:
+            self.speed_x *= -1
         
-        if self.posy > height - self.radius or self.posy < 0 + self.radius:
-            self.speedy *= -1
+        if self.pos_y > height - self.radius or self.pos_y < 0 + self.radius:
+            self.speed_y *= -1
           
-        self.posx += self.speedx
-        self.posy += self.speedy
+        self.pos_x += self.speed_x
+        self.pos_y += self.speed_y

@@ -22,7 +22,7 @@ Size = pixelCount / 10000 # Optimized size
 bubble_list = list()
 
 for x in range(0, bubbleCount):
-    bubble_list.append(Bubble.Bubble(Size, screenWidth, screenHeight, x))
+    bubble_list.append(Bubble.Bubble(Size, screenWidth, screenHeight))
     
 #bound[0] = Boundaries.Boundaries(1280, 1, 0, 0)  //top
 #bound[1] = Boundaries.Boundaries(1280, 1, 0, 720) // bottom
