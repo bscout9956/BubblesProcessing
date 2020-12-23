@@ -2,7 +2,7 @@
 
 Bubbles Screensaver recreation by BlackScout/bscout9956
 
-This is inspired by the Bubbles Screensaver (duh) made by Microsoft Corporation for Windows Vista+
+This is inspired by the Bubbles Screensaver made by Microsoft Corporation for Windows Vista+
 
 """
 
